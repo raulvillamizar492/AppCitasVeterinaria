@@ -1,20 +1,17 @@
 import { Text, View, StyleSheet, Button, Pressable, Modal } from "react-native";
-import React, { useState } from "react";
+import { useState } from "react";
+import Formulario from "./src/components/Formulario";
 export default function App() {
-  const nuevaCitaHandler = () => {
-    console.log("Presionando");
-  };
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Administrador de Citas</Text>
       <Text style={styles.subtitulo}>Veterinaria Angelitos </Text>
-      <Pressable onPress={nuevaCitaHandler} style={styles.btn}>
+      <Pressable onPress={() => setModalVisible(true)} style={styles.btn}>
         <Text style={styles.btnNuevaCita}>Nueva Cita</Text>
       </Pressable>
-      <Modal animationType="slide" visible={false}>
-        <Text>Desde Modal</Text>
-      </Modal>
+      <Formulario modalVisible={modalVisible} />
     </View>
   );
 }
