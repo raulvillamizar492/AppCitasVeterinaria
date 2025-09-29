@@ -8,10 +8,16 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.titulo}>Administrador de Citas</Text>
       <Text style={styles.subtitulo}>Veterinaria Angelitos </Text>
-      <Pressable onPress={() => setModalVisible(true)} style={styles.btn}>
+      <Pressable
+        onPress={() => setModalVisible(!modalVisible)}
+        style={styles.btn}
+      >
         <Text style={styles.btnNuevaCita}>Nueva Cita</Text>
       </Pressable>
-      <Formulario modalVisible={modalVisible} />
+      <Formulario
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+      />
     </View>
   );
 }
